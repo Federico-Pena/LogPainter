@@ -1,6 +1,6 @@
 import esbuild from 'esbuild'
 
-await esbuild
+esbuild
   .build({
     entryPoints: ['src/index.ts'],
     outfile: 'dist/index.js',
