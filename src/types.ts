@@ -40,7 +40,7 @@ export type consoleStylerOptions = {
   capitalize?: boolean
   emojiStart?: EmojiName
   emojiEnd?: EmojiName
-  align?: 'left' | 'center' | 'right'
+  aling?: 'left' | 'center' | 'right'
 }
 
 export type consoleStylerData = any

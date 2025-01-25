@@ -32,16 +32,17 @@ Use `consoleStyler` to display formatted messages in the terminal with colors, e
 import { consoleStyler } from 'logpainter'
 
 consoleStyler('This is a test', {
-  color: 'red',
-  emojiStart: 'world_map'
+  color: 'green',
+  emojiStart: 'ok_hand',
+  bgColor: 'black',
+  bold: true,
+  emojiEnd: 'ok_hand'
 })
 ```
 
 **Example Output:**
 
-<!-- Add a GIF showcasing consoleStyler here -->
-
-![Console Data Example](./path-to-your-gif.gif)
+![Console Data Example](./assets/consoleStyler.png)
 
 ---
 
@@ -52,23 +53,26 @@ Use `consoleLoader` to display a loading animation while executing an asynchrono
 ```ts
 import { consoleLoader } from 'logpainter'
 
-consoleLoader(
-  async () => new Promise((res) => setTimeout(() => res('Success'), 2000)),
-  {
-    message: 'Loading...',
-    loaderName: 'arrows'
-  }
-)
-  .then((res) =>
-    consoleStyler(res, {
+consoleLoader(asyncFuntion, {
+  message: 'Making a request...',
+  color: 'green',
+  emojiStart: 'hourglass_not_done',
+  bgColor: 'black',
+  bold: true,
+  emojiEnd: 'hourglass_done',
+  loaderName: 'soccer'
+})
+  .then((res) => {
+    const asyncFuntionRes = res
+    consoleStyler('Success!', {
       color: 'green',
-      emojiStart: 'thumbs_up'
+      emojiStart: 'check_mark_button'
     })
-  )
+  })
   .catch((err) =>
-    consoleStyler(err, {
+    consoleStyler('Failed!', {
       color: 'red',
-      emojiStart: 'thumbs_down'
+      emojiStart: 'cross_mark'
     })
   )
 ```
@@ -77,7 +81,7 @@ consoleLoader(
 
 <!-- Add a GIF showcasing consoleLoader here -->
 
-![Console Loader Example](./path-to-your-gif.gif)
+![Console Loader Example](./assets/consoleLoader.gif)
 
 ---
 

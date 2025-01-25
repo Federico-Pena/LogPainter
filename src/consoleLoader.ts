@@ -1,6 +1,6 @@
 import { loaders } from './data/loaders.js'
 import { ConsoleLoader, LoadersNames } from './types.js'
-import { alignText } from './utils/alignText.js'
+import { alingText } from './utils/alingText.js'
 import { applyEmojis } from './utils/applyEmojis.js'
 import { formatText } from './utils/formatText.js'
 
@@ -20,7 +20,7 @@ export const consoleLoader: ConsoleLoader = async (task, options = {}) => {
       loaderName = 'clock',
       emojiStart = '',
       emojiEnd = '',
-      align = 'left',
+      aling = 'left',
       indent = 0
     } = options
 
@@ -43,11 +43,11 @@ export const consoleLoader: ConsoleLoader = async (task, options = {}) => {
         emojiStart,
         emojiEnd
       })
-      let alignedText = alignText(textWithEmojis, align)
+      let alingedText = alingText(textWithEmojis, aling)
       if (indent > 0) {
-        alignedText = ' '.repeat(indent * 2) + alignedText
+        alingedText = ' '.repeat(indent * 2) + alingedText
       }
-      process.stdout.write(`\r${alignedText}`)
+      process.stdout.write(`\r${alingedText}`)
       frameIndex++
     }, 200)
 

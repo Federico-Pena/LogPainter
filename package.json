@@ -17,8 +17,7 @@
     "console",
     "loader",
     "style",
-    "terminal",
-    "npm-package"
+    "terminal"
   ],
   "scripts": {
     "test": "vitest",
