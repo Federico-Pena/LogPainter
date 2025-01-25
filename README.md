@@ -2,9 +2,9 @@
 
 ![NPM Version](https://img.shields.io/npm/v/logpainter?color=blue&label=version&logo=npm)
 ![Downloads](https://img.shields.io/npm/dt/logpainter?logo=npm)
-![License](https://img.shields.io/github/license/Federico-Pena/logpainter)
+![License](https://img.shields.io/github/license/Federico-Pena/LogPainter)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Supported-blue?logo=typescript)
-![GitHub stars](https://img.shields.io/github/stars/Federico-Pena/logpainter?style=social)
+![GitHub stars](https://img.shields.io/github/stars/Federico-Pena/LogPainter?style=social)
 
 logpainter is a lightweight and easy-to-use package for adding **stylized console messages** and **animated loaders** in Node.js.
 
