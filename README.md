@@ -42,7 +42,7 @@ consoleStyler('This is a test', {
 
 **Example Output:**
 
-![Console Data Example](./assets/consoleStyler.png)
+![Console Data Example](https://raw.githubusercontent.com/Federico-Pena/LogPainter/master/assets/consoleStyler.png)
 
 ---
 
@@ -81,7 +81,7 @@ consoleLoader(asyncFuntion, {
 
 <!-- Add a GIF showcasing consoleLoader here -->
 
-![Console Loader Example](./assets/consoleLoader.gif)
+![Console Loader Example](https://raw.githubusercontent.com/Federico-Pena/LogPainter/master/assets/consoleLoader.gif)
 
 ---
 
