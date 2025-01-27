@@ -1,11 +1,17 @@
 import { emojis } from '../data/emojis.js'
-import { EmojiName } from '../types.js'
+import type { EmojiName } from '../types.js'
 
 export const findEmoji = (emojiName: EmojiName): string | null => {
   for (const category in emojis) {
-    for (const subCategory in emojis[category]) {
-      if (emojiName in emojis[category][subCategory]) {
-        return emojis[category][subCategory][emojiName]
+    const categoryEmojis = emojis[category]
+    if (!categoryEmojis) continue
+
+    for (const subCategory in categoryEmojis) {
+      const subCategoryEmojis = categoryEmojis[subCategory]
+      if (!subCategoryEmojis) continue
+
+      if (emojiName in subCategoryEmojis) {
+        return subCategoryEmojis[emojiName] ?? null
       }
     }
   }

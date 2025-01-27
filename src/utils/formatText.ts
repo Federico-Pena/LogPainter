@@ -1,5 +1,5 @@
 import { bgColors, textColors } from '../data/colors.js'
-import { FormatText } from '../types.js'
+import type { FormatText } from '../types.js'
 import { capitalizeText } from './capitalizeText.js'
 
 export const formatText: FormatText = (data = '', options = {}) => {

@@ -1,4 +1,4 @@
-import { TextColors } from '../types.js'
+import type { TextColors } from '../types.js'
 
 export const textColors: TextColors = {
   yellow: 33,

@@ -1,4 +1,4 @@
-import { Loaders } from '../types.js'
+import type { Loaders } from '../types.js'
 
 export const loaders: Loaders = {
   dots: ['[     ]', '[.    ]', '[..   ]', '[...  ]', '[.... ]', '[.....]'],

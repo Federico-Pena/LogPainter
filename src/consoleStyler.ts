@@ -1,4 +1,4 @@
-import { ConsoleStyler } from './types.js'
+import type { ConsoleStyler } from './types.js'
 import { alingText } from './utils/alingText.js'
 import { applyEmojis } from './utils/applyEmojis.js'
 import { formatText } from './utils/formatText.js'
@@ -9,7 +9,7 @@ export const consoleStyler: ConsoleStyler = (data, options = {}) => {
       console.log(data)
       return
     }
-    const { emojiStart, emojiEnd, aling, indent } = options
+    const { emojiStart, emojiEnd, aling, indent = 0 } = options
     const formattedText = formatText(data, options)
     const textWithEmojis = applyEmojis(formattedText, {
       emojiStart,

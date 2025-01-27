@@ -1,4 +1,4 @@
-import { Emojis } from '../types.js'
+import type { Emojis } from '../types.js'
 
 export const emojis: Emojis = {
   smileys_emotion: {

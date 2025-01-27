@@ -1,5 +1,5 @@
 import { loaders } from './data/loaders.js'
-import { ConsoleLoader, LoadersNames } from './types.js'
+import type { ConsoleLoader, LoadersNames } from './types.js'
 import { alingText } from './utils/alingText.js'
 import { applyEmojis } from './utils/applyEmojis.js'
 import { formatText } from './utils/formatText.js'
@@ -36,7 +36,10 @@ export const consoleLoader: ConsoleLoader = async (task, options = {}) => {
 
     let frameIndex = 0
     intervalId = setInterval(() => {
-      const loader = loaders[loaderName]
+      const loader = loaders[loaderName] ?? loaders.clock
+      if (!loader) {
+        return
+      }
       const frame = loader[frameIndex % loader.length]
       const text = formatText(`${frame} ${message}`, options)
       const textWithEmojis = applyEmojis(text, {
@@ -56,7 +59,7 @@ export const consoleLoader: ConsoleLoader = async (task, options = {}) => {
     process.stdout.write(clearLine)
 
     return result
-  } catch (error) {
+  } catch (error: any) {
     clearInterval(intervalId)
     process.stdout.write(clearLine)
     const formattedText = formatText(`${error.name}: ${error.message}`, {

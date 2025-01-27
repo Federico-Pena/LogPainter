@@ -6,7 +6,6 @@ esbuild
     outfile: 'dist/index.js',
     bundle: true,
     minify: true,
-    sourcemap: true,
     platform: 'node',
     format: 'esm'
   })

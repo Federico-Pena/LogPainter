@@ -1,4 +1,4 @@
-import { EmojiName } from '../types.js'
+import type { EmojiName } from '../types.js'
 import { findEmoji } from './findEmoji.js'
 import { getEmojiNames } from './getEmojiNames.js'
 
