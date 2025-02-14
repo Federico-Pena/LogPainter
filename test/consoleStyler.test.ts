@@ -47,7 +47,11 @@ describe('consoleStyler', () => {
     const testString = 'Hello, World!'
 
     vi.spyOn(formatTextModule, 'formatText').mockImplementationOnce(() => {
-      throw new Error('Internal formatting error')
+      const formattedText = formatText('Error: Internal formatting error', {
+        color: 'red',
+        emojiStart: 'warning'
+      })
+      return new Error(formattedText).message
     })
 
     consoleStyler(testString)

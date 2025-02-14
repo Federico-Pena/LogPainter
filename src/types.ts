@@ -14,9 +14,9 @@ export interface ConsoleLoaderResult {
 
 export interface ConsoleLoader {
   (
-    task: () => Promise<any>,
+    taskOrPromise: (() => Promise<any> | void) | Promise<any>,
     options?: ConsoleLoaderOptions
-  ): Promise<ConsoleLoaderResult>
+  ): Promise<any>
 }
 
 export interface TextColors {

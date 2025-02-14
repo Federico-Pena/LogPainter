@@ -3,7 +3,6 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "dist",
-    /* Base Options: */
     "esModuleInterop": true,
     "skipLibCheck": true,
     "target": "es2022",
@@ -11,14 +10,11 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",
-    /* Strictness */
     "strict": true,
     "noUncheckedIndexedAccess": true,
-    /* If NOT transpiling with TypeScript: */
     "moduleResolution": "Bundler",
     "module": "ESNext",
     "noEmit": false,
-    /* If your code doesn't run in the DOM: */
     "lib": ["es2022"]
   },
   "include": ["src/**/*"],

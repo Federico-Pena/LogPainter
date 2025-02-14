@@ -11,9 +11,7 @@ export const consoleLoader: ConsoleLoader = async (task, options = {}) => {
     const isAsyncFunction =
       typeof task === 'function' && task.constructor.name === 'AsyncFunction'
 
-    if (!isAsyncFunction) {
-      throw new Error('Task must be an async function.')
-    }
+    let taskResult: any
 
     let {
       message = '',
@@ -54,11 +52,17 @@ export const consoleLoader: ConsoleLoader = async (task, options = {}) => {
       frameIndex++
     }, 200)
 
-    const result = await task()
+    if (isAsyncFunction) {
+      taskResult = await task()
+    } else if (task instanceof Promise) {
+      taskResult = await task
+    } else {
+      throw new Error('Task must be an async function or a Promise.')
+    }
     clearInterval(intervalId)
     process.stdout.write(clearLine)
 
-    return result
+    return taskResult
   } catch (error: any) {
     clearInterval(intervalId)
     process.stdout.write(clearLine)
