@@ -3,7 +3,8 @@ export interface Loaders {
 }
 
 export interface ConsoleLoaderOptions extends consoleStylerOptions {
-  message?: string
+  message?: string | number
+  finishMessage?: string | number
   loaderName?: LoadersNames
 }
 
@@ -61,7 +62,6 @@ export interface EmojiCategory {
 export interface Emojis {
   [category: string]: EmojiCategory
 }
-
 export type LoadersNames =
   | 'animals'
   | 'arrows'
@@ -69,13 +69,13 @@ export type LoadersNames =
   | 'bounce'
   | 'bouncingBall'
   | 'boxGrow'
-  | 'car'
+  | 'skates'
   | 'chars'
   | 'clock'
   | 'dots'
   | 'earth'
   | 'fillBox'
-  | 'fish'
+  | 'ovni'
   | 'grenade'
   | 'hand'
   | 'loadingWords'

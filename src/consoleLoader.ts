@@ -1,3 +1,4 @@
+import { consoleStyler } from './consoleStyler.js'
 import { loaders } from './data/loaders.js'
 import type { ConsoleLoader, LoadersNames } from './types.js'
 import { alingText } from './utils/alingText.js'
@@ -14,6 +15,7 @@ export const consoleLoader: ConsoleLoader = async (task, options = {}) => {
     let taskResult: any
 
     let {
+      finishMessage = 'Done',
       message = '',
       loaderName = 'clock',
       emojiStart = '',
@@ -48,6 +50,7 @@ export const consoleLoader: ConsoleLoader = async (task, options = {}) => {
       if (indent > 0) {
         alingedText = ' '.repeat(indent * 2) + alingedText
       }
+      process.stdout.clearLine(1)
       process.stdout.write(`\r${alingedText}`)
       frameIndex++
     }, 200)
@@ -60,17 +63,45 @@ export const consoleLoader: ConsoleLoader = async (task, options = {}) => {
       throw new Error('Task must be an async function or a Promise.')
     }
     clearInterval(intervalId)
-    process.stdout.write(clearLine)
-
-    return taskResult
-  } catch (error: any) {
-    clearInterval(intervalId)
-    process.stdout.write(clearLine)
-    const formattedText = formatText(`${error.name}: ${error.message}`, {
-      color: 'red',
-      emojiStart: 'warning'
+    formatText(finishMessage, {
+      color: 'green',
+      bold: true,
+      emojiStart: 'check_mark_button'
     })
-    console.log(formattedText)
+    process.stdout.write(clearLine)
+    consoleStyler(finishMessage, {
+      color: 'green',
+      bold: true,
+      emojiStart: 'check_mark_button'
+    })
+    return taskResult
+  } catch (error: Error | any) {
+    clearInterval(intervalId)
+    process.stdout.write(clearLine + '\n')
+    consoleStyler(error.name, {
+      color: 'red',
+      emojiStart: 'cross_mark'
+    })
+    consoleStyler(`${error.message}'\n`, {
+      color: 'red',
+      emojiStart: 'backhand_index_pointing_right',
+      indent: 2
+    })
+    if (error.stack) {
+      const stackLines = error.stack.split('\n').slice(1)
+      consoleStyler('Stack trace:', {
+        emojiStart: 'memo'
+      })
+      stackLines.forEach((line: string) => {
+        consoleStyler(line.trim(), {
+          indent: 4
+        })
+      })
+    } else {
+      consoleStyler('No stack trace available.', {
+        emojiStart: 'memo'
+      })
+    }
     throw error
   }
 }

@@ -11,5 +11,6 @@ export const alingText = (
     const padding = Math.max(0, terminalWidth - text.length)
     return ' '.repeat(padding) + text
   }
+
   return text
 }
