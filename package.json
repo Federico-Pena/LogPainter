@@ -1,6 +1,6 @@
 {
   "name": "logpainter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A utility for console loaders and styled console messages.",
   "author": "ChifoDev",
   "license": "MIT",
