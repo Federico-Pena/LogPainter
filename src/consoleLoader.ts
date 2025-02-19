@@ -63,11 +63,6 @@ export const consoleLoader: ConsoleLoader = async (task, options = {}) => {
       throw new Error('Task must be an async function or a Promise.')
     }
     clearInterval(intervalId)
-    formatText(finishMessage, {
-      color: 'green',
-      bold: true,
-      emojiStart: 'check_mark_button'
-    })
     process.stdout.write(clearLine)
     consoleStyler(finishMessage, {
       color: 'green',

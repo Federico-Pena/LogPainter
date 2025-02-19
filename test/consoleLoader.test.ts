@@ -18,9 +18,12 @@ afterEach(() => {
 })
 
 describe('consoleLoader', () => {
-  test('should throw an error if task is not an async function', async () => {
+  test('should throw an error if the funtion is not a Promise or async function', async () => {
     try {
-      const result = await consoleLoader(syncFunction as any)
+      const result = await consoleLoader(syncFunction as any, {
+        message: 'Loading...',
+        finishMessage: 'should throw an error if '
+      })
       expect(result).toBe(undefined)
     } catch (error) {
       expect(error.message).toBe('Task must be an async function or a Promise.')
